@@ -1,0 +1,14 @@
+{
+    "name": "mytutorialapp",
+    "version": "0.1.0",
+    "description": "Node.js tutorial app for Habitat",
+    "author": "First Last <first.last@example.com>",
+    "license": "MIT",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+            "nconf": "^0.8.4"
+    }
+}
