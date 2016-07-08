@@ -1,12 +1,10 @@
 pkg_origin=jmiller
-pkg_name=mynodeapp
+pkg_name=hab-nodeapp
 pkg_version=0.1.0
 pkg_maintainer=jm@chef.io
 pkg_license=()
-pkg_source=https://github.com/jeremymv2/hab-nodeapp/raw/master/artifacts/${pkg_name}-${pkg_version}.tar.gz
-#pkg_source=http://example.com/${pkg_name}-${pkg_version}.tar.xz
-#pkg_source=nosuchfile.tar.gz
-pkg_shasum=bebe5e6e8c6ad9aa2eb54653465f3c84aad1a1c6de4aad828f926de853db8c12
+pkg_source=https://s3-us-west-2.amazonaws.com/jmiller-chef-data/${pkg_name}-${pkg_version}.tar.gz
+pkg_shasum=426af93c0d73c04753eff7568af168689736589012c3700d0a4f161c1a58cff3
 pkg_filename=${pkg_name}-${pkg_version}.tar.gz
 pkg_deps=(core/node)
 pkg_build_deps=()
@@ -23,6 +21,7 @@ do_build() {
 
   # This installs both npm as well as the nconf module we listed as a
   # dependency in package.json.
+  echo "I AM HERE" $PWD
   npm install
 }
 
@@ -32,7 +31,7 @@ do_install() {
   # the pkg_prefix variable. This is so that we have the source files available
   # in the package.
   cp package.json ${pkg_prefix}
-  cp server.js ${pkg_prefix}
+  cp server.json ${pkg_prefix}
 
   # Copy over the nconf module to the package that we installed in do_build().
   mkdir -p ${pkg_prefix}/node_modules/
