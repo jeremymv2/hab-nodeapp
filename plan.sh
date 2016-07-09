@@ -4,7 +4,7 @@ pkg_version=0.1.0
 pkg_maintainer=jm@chef.io
 pkg_license=()
 pkg_source=https://s3-us-west-2.amazonaws.com/jmiller-chef-data/${pkg_name}-${pkg_version}.tar.gz
-pkg_shasum=426af93c0d73c04753eff7568af168689736589012c3700d0a4f161c1a58cff3
+pkg_shasum=f805cd756f67ab3986c13161746fefa3574b0b0321b4c4e1c4cf089b393bbaa6
 pkg_filename=${pkg_name}-${pkg_version}.tar.gz
 pkg_deps=(core/node)
 pkg_build_deps=()
@@ -31,7 +31,7 @@ do_install() {
   # the pkg_prefix variable. This is so that we have the source files available
   # in the package.
   cp package.json ${pkg_prefix}
-  cp server.json ${pkg_prefix}
+  cp server.js ${pkg_prefix}
 
   # Copy over the nconf module to the package that we installed in do_build().
   mkdir -p ${pkg_prefix}/node_modules/
